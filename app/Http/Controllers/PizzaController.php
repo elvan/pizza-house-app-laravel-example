@@ -7,10 +7,8 @@ use App\Pizza;
 
 class PizzaController extends Controller
 {
-
     public function index()
     {
-
         $pizzas = Pizza::latest()->get();
 
         return view('pizzas.index', [
@@ -20,8 +18,6 @@ class PizzaController extends Controller
 
     public function show($id)
     {
-
-        //$pizza = Pizza::find($id);
         $pizza = Pizza::findOrFail($id);
 
         return view('pizzas.show', ['pizza' => $pizza]);
