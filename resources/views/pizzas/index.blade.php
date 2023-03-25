@@ -12,7 +12,6 @@
                     {{ $pizza->name }} - {{ $pizza->type }} - {{ $pizza->base }}
                 </div>
             @endforeach
-
         </div>
     </div>
 @endsection

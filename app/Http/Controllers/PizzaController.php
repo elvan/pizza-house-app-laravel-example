@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Pizza;
+use Illuminate\Http\Request;
 
 class PizzaController extends Controller
 {
@@ -16,7 +17,7 @@ class PizzaController extends Controller
         // $pizzas = Pizza::where('type', 'hawaiian')->get();
         $pizzas = Pizza::latest()->get();
 
-        return view('pizzas', [
+        return view('pizzas.index', [
             'pizzas' => $pizzas,
         ]);
     }
@@ -24,6 +25,11 @@ class PizzaController extends Controller
     public function show($id)
     {
         // use the $id variable to query the db for a record
-        return view('details', ['id' => $id]);
+        return view('pizzas.show', ['id' => $id]);
+    }
+
+    public function create()
+    {
+        return view('pizzas.create');
     }
 }
